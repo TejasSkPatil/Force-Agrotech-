@@ -1,0 +1,39 @@
+/* Typography tokens and utility classes for Focus Agrotech */
+
+.font-serif-display {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.font-sans-body {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-accent-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.heading-display {
+  font-family: 'DM Serif Display', Georgia, serif;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+
+.italic-accent {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.subheading-lead {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.label-kicker {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

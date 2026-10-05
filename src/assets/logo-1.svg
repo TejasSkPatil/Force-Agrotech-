@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" fill="none">
+  <!-- FOCUS in bold italic blue -->
+  <g id="logo-focus">
+    <!-- Letter F -->
+    <path d="M22 20 H68 L64 33 H42 L40 43 H58 L54 55 H37 L30 80 H14 L22 20 Z" fill="#005DA6" />
+    
+    <!-- Letter O (with target crosshair) -->
+    <g id="target-O">
+      <!-- Outer red circle ring -->
+      <circle cx="95" cy="50" r="28" stroke="#005DA6" stroke-width="7" fill="none" transform="skewX(-10)" />
+      <!-- Red inner circle with crosshairs -->
+      <circle cx="95" cy="50" r="21" fill="#D62828" transform="skewX(-10)" />
+      <!-- White crosshair lines -->
+      <line x1="74" y1="50" x2="116" y2="50" stroke="#FFFFFF" stroke-width="3" transform="skewX(-10)" />
+      <line x1="95" y1="29" x2="95" y2="71" stroke="#FFFFFF" stroke-width="3" transform="skewX(-10)" />
+      <!-- White central ring and dot -->
+      <circle cx="95" cy="50" r="8" fill="#D62828" stroke="#FFFFFF" stroke-width="2.5" transform="skewX(-10)" />
+      <circle cx="95" cy="50" r="3.5" fill="#FFFFFF" transform="skewX(-10)" />
+    </g>
+    
+    <!-- Letter C -->
+    <path d="M165 25 C146 25 132 38 128 54 C124 71 135 83 154 83 C168 83 176 77 180 71 L168 64 C165 68 160 71 153 71 C144 71 139 64 141 54 C143 44 150 37 159 37 C166 37 170 41 173 45 L184 37 C180 30 173 25 165 25 Z" fill="#005DA6" />
+    
+    <!-- Letter U -->
+    <path d="M192 22 L180 62 C178 68 181 73 186 76 C190 78 196 79 203 79 C212 79 218 76 222 72 C226 67 228 60 230 53 L238 22 H223 L216 50 C214 56 211 67 203 67 C198 67 195 62 196 57 L206 22 H192 Z" fill="#005DA6" />
+    
+    <!-- Letter S -->
+    <path d="M268 25 C256 25 244 31 242 41 C240 50 248 53 256 55 C266 58 271 60 269 66 C268 71 262 73 255 73 C245 73 240 68 238 61 L224 64 C227 75 237 83 253 83 C267 83 281 77 283 65 C285 55 277 51 267 48 C258 45 254 43 255 38 C256 34 262 33 268 33 C275 33 280 36 282 41 L295 36 C290 28 280 25 268 25 Z" fill="#005DA6" />
+  </g>
+  
+  <!-- AGROTECH PVT. LTD. in bold red font -->
+  <text x="18" y="96" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="19" fill="#D62828" letter-spacing="1.5">AGROTECH PVT. LTD.</text>
+</svg>

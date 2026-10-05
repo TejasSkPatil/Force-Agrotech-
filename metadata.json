@@ -1,0 +1,6 @@
+{
+  "name": "Focus Agrotech - International Agricultural Export",
+  "description": "Connecting global markets with premium quality agricultural products, grains, pulses, and spices sourced from India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

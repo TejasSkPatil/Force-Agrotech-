@@ -1,0 +1,150 @@
+/* Global styles and design tokens for Focus Agrotech */
+
+:root {
+  --color-primary-green: #174D35;
+  --color-secondary-green: #4F8054;
+  --color-cream: #FAFAF5;
+  --color-gold: #D6A84F;
+  --color-dark-text: #252A26;
+  --color-white: #FFFFFF;
+  --color-border-subtle: #E5E7DF;
+  --color-footer-bg: #0D2B1E;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Manrope', -apple-system, sans-serif;
+  background-color: #FAFAF5;
+  color: #252A26;
+}
+
+/* Arch mask for Hero and About images reproducing reference design */
+.arch-top-shape {
+  border-top-left-radius: 220px;
+  border-top-right-radius: 220px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.arch-right-shape {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 180px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+/* Subtle card shadow */
+.card-shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(23, 77, 53, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 20px 35px -8px rgba(23, 77, 53, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* Button micro-interactions */
+.btn-interactive {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(23, 77, 53, 0.2);
+}
+
+.btn-interactive:active {
+  transform: translateY(0);
+}
+
+.btn-interactive:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3D tilt perspective container */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Remove default focus outlines in favor of clean focus rings */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #174D35;
+  outline-offset: 2px;
+}
+
+/* Typographic balance to eliminate awkward heading wraps across viewports */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Reduced motion explicit CSS overrides */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .btn-interactive:hover {
+    transform: none !important;
+  }
+  .btn-interactive:hover .btn-arrow {
+    transform: none !important;
+  }
+}
+
+/* Touch device optimizations: disable hover transforms on coarse pointer */
+@media (hover: none) and (pointer: coarse) {
+  .btn-interactive:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .perspective-container {
+    perspective: none !important;
+    transform: none !important;
+  }
+}
+
+/* GSAP Inspired Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+/* Text Marker Highlighter Animation inspired by GSAP showcase video */
+.marker-highlight-yellow {
+  background: linear-gradient(120deg, rgba(214, 168, 79, 0.22) 0%, rgba(214, 168, 79, 0.35) 100%);
+  border-radius: 4px;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.marker-highlight-green {
+  background: linear-gradient(120deg, rgba(23, 77, 53, 0.15) 0%, rgba(79, 128, 84, 0.25) 100%);
+  border-radius: 4px;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
