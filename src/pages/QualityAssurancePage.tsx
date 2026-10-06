@@ -4,6 +4,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
 import { SectionLabel } from '../components/common/SectionLabel';
 import { SectionHeading } from '../components/common/SectionHeading';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { QuoteModal } from '../components/common/QuoteModal';
 
 export const QualityAssurancePage: React.FC = () => {
@@ -49,49 +50,56 @@ export const QualityAssurancePage: React.FC = () => {
       description="Quality is the cornerstone of Focus Agrotech. From farm aggregation to oceanic dispatch, our verification protocols protect your supply chain."
       breadcrumbs={[{ label: 'Quality Assurance' }]}
     >
-      {/* 1. Four-Stage Quality Pipeline */}
-      <section className="py-16 sm:py-24 bg-white border-b border-[#E5E7DF]">
+      {/* 1. Four-Stage Quality Pipeline with Alternating Left/Right Slides */}
+      <section className="py-16 sm:py-24 bg-white border-b border-[#E5E7DF] overflow-hidden">
         <Container size="xl">
-          <div className="max-w-3xl mb-14">
+          <ScrollReveal x={-50} duration={0.7} className="max-w-3xl mb-14">
             <SectionLabel label="SYSTEMATIC REVIEW" icon={ShieldCheck} />
             <SectionHeading
               title="End-to-End Quality Protocol Built For"
               italicPart="Global Importers"
               subtitle="We implement strict standardized operating procedures across aggregation, handling, processing, and port loading."
             />
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {qualityStages.map((stage) => (
-              <div
-                key={stage.step}
-                className="bg-[#FAFAF5] rounded-2xl p-6 sm:p-7 border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between"
-              >
-                <div>
-                  <span className="font-serif-display text-3xl font-bold text-[#174D35] block mb-4">
-                    {stage.step}
-                  </span>
-                  <h3 className="font-serif-display text-xl font-normal text-[#252A26] mb-3">
-                    {stage.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#555C56] leading-relaxed font-sans-body">
-                    {stage.desc}
-                  </p>
-                </div>
-                <div className="mt-6 pt-3 border-t border-neutral-200/70 flex items-center gap-1 text-[11px] font-semibold text-[#174D35]">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Verified Benchmark</span>
-                </div>
-              </div>
-            ))}
+            {qualityStages.map((stage, sIdx) => {
+              // Alternating left and right entrance for stages:
+              const isEven = sIdx % 2 === 0;
+              return (
+                <ScrollReveal
+                  key={stage.step}
+                  x={isEven ? -45 : 45}
+                  delay={sIdx * 0.1}
+                  duration={0.75}
+                  className="bg-[#FAFAF5] rounded-2xl p-6 sm:p-7 border border-[#E5E7DF] card-shadow-soft hover:card-shadow-hover transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="font-serif-display text-3xl font-bold text-[#174D35] block mb-4">
+                      {stage.step}
+                    </span>
+                    <h3 className="font-serif-display text-xl font-normal text-[#252A26] mb-3">
+                      {stage.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#555C56] leading-relaxed font-sans-body">
+                      {stage.desc}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-3 border-t border-neutral-200/70 flex items-center gap-1 text-[11px] font-semibold text-[#174D35]">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Verified Benchmark</span>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      {/* 2. Benchmark Specifications Table */}
-      <section className="py-16 sm:py-24 bg-[#FAFAF5]">
+      {/* 2. Benchmark Specifications Table with Alternating Reveal */}
+      <section className="py-16 sm:py-24 bg-[#FAFAF5] overflow-hidden">
         <Container size="xl">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <ScrollReveal x={-40} duration={0.7} className="text-center max-w-3xl mx-auto mb-14">
             <SectionLabel label="COMMODITY PARAMETERS" icon={Microscope} className="justify-center" />
             <SectionHeading
               title="Standard Export Quality"
@@ -99,9 +107,9 @@ export const QualityAssurancePage: React.FC = () => {
               subtitle="All parameters are validated by government-approved testing agencies prior to issuing the export Bill of Lading."
               align="center"
             />
-          </div>
+          </ScrollReveal>
 
-          <div className="bg-white rounded-2xl border border-[#E5E7DF] overflow-hidden shadow-sm">
+          <ScrollReveal y={35} duration={0.8} className="bg-white rounded-2xl border border-[#E5E7DF] overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm font-sans-body">
                 <thead className="bg-[#EBF2ED] text-xs font-bold uppercase tracking-wider text-[#174D35] border-b border-[#E5E7DF]">
@@ -118,18 +126,18 @@ export const QualityAssurancePage: React.FC = () => {
                     <tr key={idx} className="hover:bg-[#FAFAF5] transition-colors">
                       <td className="py-4 px-6 font-bold text-[#252A26]">{row.commodity}</td>
                       <td className="py-4 px-6 tabular-nums">{row.moisture}</td>
-                      <td className="py-4 px-6 tabular-nums">{row.purity}</td>
+                      <td className="py-4 px-6">{row.purity}</td>
                       <td className="py-4 px-6 tabular-nums">{row.foreign}</td>
-                      <td className="py-4 px-6 text-xs text-[#555C56] font-medium">{row.keyFactor}</td>
+                      <td className="py-4 px-6 font-semibold text-[#174D35]">{row.keyFactor}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Third party inspections banner */}
-          <div className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7DF] flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Third party inspections banner with alternating slide */}
+          <ScrollReveal y={30} delay={0.2} className="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7DF] flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-[#EBF2ED] text-[#174D35] flex items-center justify-center shrink-0">
                 <FileCheck2 className="w-6 h-6" />
@@ -150,7 +158,7 @@ export const QualityAssurancePage: React.FC = () => {
               <span>Discuss Inspection Criteria</span>
               <ArrowRight className="w-4 h-4 btn-arrow" />
             </button>
-          </div>
+          </ScrollReveal>
         </Container>
       </section>
 

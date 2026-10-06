@@ -131,6 +131,27 @@ h1, h2, h3 {
   animation: marquee 28s linear infinite;
 }
 
+/* Horizontal Automatic Loop Slides Animation for Featured Commodities */
+@keyframes horizontal-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-horizontal-loop {
+  display: flex;
+  width: max-content;
+  animation: horizontal-loop 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-horizontal-loop:hover {
+  animation-play-state: paused;
+}
+
 /* Text Marker Highlighter Animation inspired by GSAP showcase video */
 .marker-highlight-yellow {
   background: linear-gradient(120deg, rgba(214, 168, 79, 0.22) 0%, rgba(214, 168, 79, 0.35) 100%);

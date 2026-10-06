@@ -5,6 +5,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
 import { SectionLabel } from '../components/common/SectionLabel';
 import { SectionHeading } from '../components/common/SectionHeading';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { COMPANY_INFO, WHY_CHOOSE_US } from '../data/company';
 
 export const AboutPage: React.FC = () => {
@@ -16,12 +17,12 @@ export const AboutPage: React.FC = () => {
       description="Focus Agrotech Private Limited sources, inspects, and exports premium agricultural commodities from India to international food businesses, wholesalers, and importers."
       breadcrumbs={[{ label: 'About Us' }]}
     >
-      {/* 1. Corporate Background & History */}
-      <section className="py-16 sm:py-24 bg-white border-b border-[#E5E7DF]">
+      {/* 1. Corporate Background & History with Alternating Left/Right Reveal */}
+      <section className="py-16 sm:py-24 bg-white border-b border-[#E5E7DF] overflow-hidden">
         <Container size="xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Visual Column */}
-            <div className="lg:col-span-6 relative">
+            {/* Visual Column: Enters from left to right */}
+            <ScrollReveal x={-60} duration={0.85} className="lg:col-span-6 relative">
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] arch-right-shape overflow-hidden shadow-xl border-4 border-white bg-neutral-900">
                 <img
                   src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80"
@@ -52,10 +53,10 @@ export const AboutPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Narrative Column */}
-            <div className="lg:col-span-6 space-y-6">
+            {/* Narrative Column: Enters from right to left (Alternating) */}
+            <ScrollReveal x={60} delay={0.15} duration={0.85} className="lg:col-span-6 space-y-6">
               <SectionLabel label="COMPANY HERITAGE" icon={Building2} />
               <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-[44px] font-normal text-[#252A26] leading-tight">
                 Rooted in Integrity, Connected to Global Markets
@@ -90,15 +91,15 @@ export const AboutPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </Container>
       </section>
 
-      {/* 2. Sourcing Mission & Operating Principles */}
-      <section className="py-16 sm:py-24 bg-[#FAFAF5]">
+      {/* 2. Sourcing Mission & Operating Principles with Alternating Flow */}
+      <section className="py-16 sm:py-24 bg-[#FAFAF5] overflow-hidden">
         <Container size="xl">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <ScrollReveal x={-40} duration={0.7} className="text-center max-w-3xl mx-auto mb-14">
             <SectionLabel label="OUR CORE COMMITMENT" icon={Target} className="justify-center" />
             <SectionHeading
               title="Built Around Accuracy, Consistency and"
@@ -106,10 +107,10 @@ export const AboutPage: React.FC = () => {
               subtitle="International agricultural trade relies on uncompromised specifications, timely shipping, and clear communication."
               align="center"
             />
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
+            <ScrollReveal x={-50} delay={0.1} className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#EBF2ED] text-[#174D35] flex items-center justify-center mb-6">
                   <ShieldCheck className="w-6 h-6" />
@@ -124,9 +125,9 @@ export const AboutPage: React.FC = () => {
               <div className="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#174D35]">
                 Lab Verified Standards
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
+            <ScrollReveal y={40} delay={0.2} className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#EBF2ED] text-[#174D35] flex items-center justify-center mb-6">
                   <Globe className="w-6 h-6" />
@@ -141,9 +142,9 @@ export const AboutPage: React.FC = () => {
               <div className="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#174D35]">
                 Port-to-Port Containerization
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
+            <ScrollReveal x={50} delay={0.3} className="bg-white p-8 rounded-2xl border border-[#E5E7DF] card-shadow-soft flex flex-col justify-between">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-[#EBF2ED] text-[#174D35] flex items-center justify-center mb-6">
                   <Award className="w-6 h-6" />
@@ -158,10 +159,10 @@ export const AboutPage: React.FC = () => {
               <div className="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#174D35]">
                 Incoterms & L/C Compliance
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
-          <div className="mt-14 text-center">
+          <ScrollReveal y={30} delay={0.4} className="mt-14 text-center">
             <Link
               to="/products"
               className="btn-interactive inline-flex items-center gap-2 bg-[#174D35] text-white text-xs sm:text-sm font-semibold px-6 py-3.5 rounded-full shadow-xs hover:bg-[#123E2A]"
@@ -169,7 +170,7 @@ export const AboutPage: React.FC = () => {
               <span>Explore Our Product Portfolio</span>
               <ArrowRight className="w-4 h-4 btn-arrow" />
             </Link>
-          </div>
+          </ScrollReveal>
         </Container>
       </section>
     </PageLayout>

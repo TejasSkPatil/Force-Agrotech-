@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Send, MessageCircle, Building2, CheckCircle2, Glob
 import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
 import { SectionLabel } from '../components/common/SectionLabel';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { COMPANY_INFO } from '../data/company';
 
 export const ContactPage: React.FC = () => {
@@ -32,11 +33,11 @@ export const ContactPage: React.FC = () => {
       description="Direct inquiries, sample dispatch requests, and commercial FOB/CIF pricing for global agricultural buyers."
       breadcrumbs={[{ label: 'Contact Us' }]}
     >
-      <section className="py-16 sm:py-24 bg-[#FAFAF5]">
+      <section className="py-16 sm:py-24 bg-[#FAFAF5] overflow-hidden">
         <Container size="xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Verified Contact Information & Office Details */}
-            <div className="lg:col-span-5 space-y-8">
+            <ScrollReveal x={-60} duration={0.85} className="lg:col-span-5 space-y-8">
               <div>
                 <SectionLabel label="CORPORATE HEADQUARTERS" icon={Building2} />
                 <h2 className="font-serif-display text-3xl sm:text-4xl font-normal text-[#252A26] leading-tight mb-4">
@@ -120,10 +121,10 @@ export const ContactPage: React.FC = () => {
                   <span>Chat Now</span>
                 </a>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Right Column: Interactive Commercial Contact Form */}
-            <div className="lg:col-span-7 bg-white rounded-2xl p-7 sm:p-10 border border-[#E5E7DF] card-shadow-soft">
+            {/* Right Column: Interactive Commercial Contact Form (Enters from right to left - Alternating) */}
+            <ScrollReveal x={60} delay={0.15} duration={0.85} className="lg:col-span-7 bg-white rounded-2xl p-7 sm:p-10 border border-[#E5E7DF] card-shadow-soft">
               {isSubmitted ? (
                 <div className="py-12 text-center space-y-4">
                   <div className="w-16 h-16 bg-[#EBF2ED] text-[#174D35] rounded-full flex items-center justify-center mx-auto">
@@ -253,7 +254,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                 </form>
               )}
-            </div>
+            </ScrollReveal>
           </div>
         </Container>
       </section>

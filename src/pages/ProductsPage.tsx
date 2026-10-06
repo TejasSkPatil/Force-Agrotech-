@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Layers, Search, X, PackageX, Sparkles } from 'lucide-react';
 import { PageLayout } from '../components/layout/PageLayout';
 import { Container } from '../components/layout/Container';
+import { ScrollReveal } from '../components/common/ScrollReveal';
 import { ProductCard } from '../components/products/ProductCard';
 import { PRODUCTS, Product } from '../data/products';
 
@@ -61,10 +62,10 @@ export const ProductsPage: React.FC = () => {
       description="Explore our range of milling wheat, premium basmati & non-basmati rice, protein-rich pulses, commercial cereals, beans, and aromatic Indian spices."
       breadcrumbs={[{ label: 'Products' }]}
     >
-      <section className="py-16 sm:py-24 bg-[#FAFAF5]">
+      <section className="py-16 sm:py-24 bg-[#FAFAF5] overflow-hidden">
         <Container size="xl">
-          {/* Top Search & Filter Bar Controls */}
-          <div className="mb-10 space-y-5 pb-6 border-b border-[#E5E7DF]">
+          {/* Top Search & Filter Bar Controls (Enters from left to right) */}
+          <ScrollReveal x={-50} duration={0.75} className="mb-10 space-y-5 pb-6 border-b border-[#E5E7DF]">
             {/* Search Input Bar */}
             <div className="max-w-xl relative">
               <div className="relative flex items-center">
@@ -128,17 +129,17 @@ export const ProductsPage: React.FC = () => {
                 </button>
               )}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Product Grid or Empty Search State */}
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ScrollReveal y={30} delay={0.15} duration={0.8} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((product) => (
                 <div key={product.id}>
                   <ProductCard product={product} onSelect={handleSelectProduct} />
                 </div>
               ))}
-            </div>
+            </ScrollReveal>
           ) : (
             <div className="text-center py-16 px-4 bg-white rounded-3xl border border-[#E5E7DF] max-w-lg mx-auto shadow-xs space-y-4">
               <div className="w-14 h-14 rounded-full bg-[#FAFAF5] border border-[#E5E7DF] flex items-center justify-center mx-auto text-[#4F8054]">

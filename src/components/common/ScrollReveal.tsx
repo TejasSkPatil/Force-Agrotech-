@@ -11,6 +11,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   className = '',
   as: Component = 'div',
+  x = 0,
   y = 30,
   opacity = 0,
   duration = 0.8,
@@ -19,6 +20,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   ease = 'power2.out',
 }) => {
   const ref = useScrollReveal<HTMLDivElement>({
+    x,
     y,
     opacity,
     duration,

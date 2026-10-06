@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ShieldCheck, Play, Sprout } from 'lucide-react';
 import { Container } from '../layout/Container';
 import { SectionLabel } from '../common/SectionLabel';
-import { AmbientBotanicalBackground } from '../common/AmbientBotanicalBackground';
 import { initHeroAnimations } from '../../animations/heroAnimations';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
@@ -52,8 +51,9 @@ export const Hero: React.FC<HeroProps> = ({
       ref={sectionRef}
       className="relative pt-24 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#FAFAF5]"
     >
-      {/* Premium 16:9 ambient floating botanical leaves field */}
-      <AmbientBotanicalBackground />
+      {/* Subtle organic warmth background blur */}
+      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#E8EFEA]/70 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[350px] h-[350px] bg-[#F7F3E8]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <Container size="xl" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">

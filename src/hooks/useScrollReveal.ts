@@ -8,6 +8,7 @@ if (typeof window !== 'undefined') {
 }
 
 export interface ScrollRevealOptions {
+  x?: number;
   y?: number;
   opacity?: number;
   duration?: number;
@@ -28,6 +29,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     if (!el || prefersReduced) return;
 
     const {
+      x = 0,
       y = 30,
       opacity = 0,
       duration = 0.8,
@@ -39,9 +41,10 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { opacity, y },
+        { opacity, x, y },
         {
           opacity: 1,
+          x: 0,
           y: 0,
           duration,
           delay,
